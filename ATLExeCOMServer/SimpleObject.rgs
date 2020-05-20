@@ -1,0 +1,26 @@
+HKCR
+{
+	ATLExeCOMServer.SimpleObject.1 = s 'SimpleObject class'
+	{
+		CLSID = s '{fad13a73-2058-4094-a9a8-40915eee4761}'
+	}
+	ATLExeCOMServer.SimpleObject = s 'SimpleObject class'
+	{		
+		CurVer = s 'ATLExeCOMServer.SimpleObject.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {fad13a73-2058-4094-a9a8-40915eee4761} = s 'SimpleObject class'
+		{
+			ProgID = s 'ATLExeCOMServer.SimpleObject.1'
+			VersionIndependentProgID = s 'ATLExeCOMServer.SimpleObject'
+			ForceRemove Programmable
+			LocalServer32 = s '%MODULE%'
+			{
+				val ServerExecutable = s '%MODULE_RAW%'
+			}
+			TypeLib = s '{295c82a5-f2d9-43ef-8d93-cf3f4fb74375}'
+			Version = s '1.0'
+		}
+	}
+}

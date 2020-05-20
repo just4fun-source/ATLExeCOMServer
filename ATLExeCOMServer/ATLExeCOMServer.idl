@@ -1,0 +1,33 @@
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+	object,
+	uuid(7d25abaf-1a3f-4a19-b7c1-6e0da87a8d95),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface ISimpleObject : IDispatch
+{
+	[id(1), helpstring("method SayHello")] HRESULT SayHello([out, retval] BSTR* pRet);
+	[id(2), helpstring("method GetProcessID")] HRESULT GetProcessID([out, retval] LONG* pProcessId);
+	[id(3), helpstring("method GetThreadID")] HRESULT GetThreadID([out, retval] LONG* pThreadId);
+};
+[
+	uuid(295c82a5-f2d9-43ef-8d93-cf3f4fb74375),
+	version(1.0),
+]
+library ATLExeCOMServerLib
+{
+	importlib("stdole2.tlb");
+	[
+		uuid(fad13a73-2058-4094-a9a8-40915eee4761)
+	]
+	coclass SimpleObject
+	{
+		[default] interface ISimpleObject;
+	};
+};
+
+import "shobjidl.idl";
